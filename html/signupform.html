@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Insert title here</title>
+    <link font-family: "Montserrat", sans-serif;
+    href="https://fonts.googleapis.com/css?family=McLaren|Montserrat&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <script>
+      function lahetaKayttaja(lomake) {
+        var user = new Object();
+        user.firstname = lomake.firstname.value;
+        user.lastname = lomake.lastname.value;
+        user.image = lomake.fileToUpload.value;
+        user.username = lomake.username.value;
+        user.password = lomake.password.value;
+        var jsonUser = JSON.stringify(user);
+        console.log(jsonUser);
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("result").innerHTML = this.responseText;
+          }
+        };
+        xmlhttp.open("POST", "../php/signup.php", true);
+        xmlhttp.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
+        xmlhttp.send("user=" + jsonUser);
+      }
+    </script>
+
+    <h2>Sign up</h2>
+    <form action="" enctype="multipart/form-data" id="userlomake">
+      First name:
+      <input
+        type="text"
+        name="firstname"
+        value=""
+        placeholder="First name"
+      /><br />
+      Last name:
+      <input
+        type="text"
+        name="lastname"
+        value=""
+        placeholder="Last name"
+      /><br />
+      Image:
+      <input type="file" name="fileToUpload" id="fileToUpload" /><br />
+      Username:
+      <input
+        type="text"
+        name="username"
+        value=""
+        placeholder="Username"
+      /><br />
+      Password:
+      <input
+        type="password"
+        name="password"
+        value=""
+        placeholder="Password"
+      /><br />
+      <button type="button" name="ok" onclick="lahetaKayttaja(this.form);">
+        Sign up</button
+      ><br />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update user</title>
+    <link font-family: "Montserrat", sans-serif;
+    href="https://fonts.googleapis.com/css?family=McLaren|Montserrat&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <h1>Update data</h1>
+    <form id="update-user" method="post" action="../php/updateuser.php">
+      Firstname:
+      <input
+        type="text"
+        name="firstname"
+        value=""
+        placeholder="Firstname"
+      /><br />
+      Lastname:
+      <input
+        type="text"
+        name="lastname"
+        value=""
+        placeholder="Lastname"
+      /><br />
+      <input type="submit" name="ok" value="Update" /><br />
+    </form>
+  </body>
+</html>
