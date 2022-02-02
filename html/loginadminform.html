@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Log in</title>
+    <title>Log in as admin</title>
     <link font-family: "Montserrat", sans-serif;
     href="https://fonts.googleapis.com/css?family=McLaren|Montserrat&display=swap"
     rel="stylesheet" />
@@ -20,13 +20,13 @@
         xmlhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == "ok") {
-              window.location.assign("../php/users.php");
+              window.location.assign("../php/admin.php");
             } else {
               document.getElementById("result").innerHTML = this.responseText;
             }
           }
         };
-        xmlhttp.open("POST", "../php/login.php", true);
+        xmlhttp.open("POST", "../php/loginadmin.php", true);
         xmlhttp.setRequestHeader(
           "Content-type",
           "application/x-www-form-urlencoded"

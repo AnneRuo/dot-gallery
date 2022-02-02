@@ -17,7 +17,7 @@ catch(Exception $e){
 }
 
 //Tehdään sql-lause, jossa kysymysmerkeillä osoitetaan paikat joihin laitetaan muuttujien arvoja
-$sql="select * from users where username=? and password=SHA2(?, 256) and role='user'";
+$sql="select * from users where username=? and password=SHA2(?, 256) and role='admin'";
 try{
     $stmt=mysqli_prepare($yhteys, $sql);
     mysqli_stmt_bind_param($stmt, 'ss', $user->username, $user->password);
@@ -35,6 +35,7 @@ catch(Exception $e){
     print "Jokin virhe!";
 }
 ?>
+
 
 <?php
 function tarkistaJson($json){

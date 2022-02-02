@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include "../html/header.html";
 if (!isset($_SESSION["user"])){
@@ -17,15 +18,14 @@ if (!isset($_SESSION["user"])){
     $yhteys=mysqli_connect("db", "root", "password", "dotgalleria");
     $tulos=mysqli_query($yhteys, "select * from users");
     while ($rivi=mysqli_fetch_object($tulos)){
-        print "<p>$rivi->image $rivi->firstname $rivi->lastname ".
+        print "<p><img src='$rivi->image'> $rivi->firstname $rivi->lastname ".
             "<button><a href='./edituser.php?muokattava=$rivi->id'>Edit</a></button>".
             "<button><a href='./deleteuser.php?poistettava=$rivi->id'>Delete</a></p></button>";
     }
     mysqli_close($yhteys);
-    "<a href='logout.php'>Log out</a>";
+    print "<br><br><button><a href='./logout.php'>Log out</a></button>";
 }
 ?>
-
 
 <?php
 include "../html/footer.html";

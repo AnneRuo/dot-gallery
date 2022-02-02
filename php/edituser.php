@@ -31,10 +31,11 @@ if (!$rivi=mysqli_fetch_object($tulos)){
 }
 ?>
 
-<form action='./updateuser.php' method='post'>
+<form action='./updateuser.php' method='post' enctype='multipart/form-data'>
 id:<input type='text' name='id' value='<?php print $rivi->id;?>' readonly><br>
 Firstname:<input type='text' name='firstname' value='<?php print $rivi->firstname;?>'><br>
 Lastname:<input type='text' name='lastname' value='<?php print $rivi->lastname;?>'><br>
+Image:<input type='file' name='fileToUpload' value='<?php print $rivi->image;?>'><br>
 <button type='submit' name='ok'>Update</button><br>
 </form>
 

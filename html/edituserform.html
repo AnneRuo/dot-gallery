@@ -12,7 +12,12 @@
   </head>
   <body>
     <h1>Update data</h1>
-    <form id="update-user" method="post" action="../php/updateuser.php">
+    <form
+      id="update-user"
+      method="post"
+      action="../php/updateuser.php"
+      enctype="multipart/form-data"
+    >
       Firstname:
       <input
         type="text"
@@ -26,6 +31,13 @@
         name="lastname"
         value=""
         placeholder="Lastname"
+      /><br />
+      Image:
+      <input
+        type="file"
+        name="fileToUpload"
+        value=""
+        placeholder="Browse..."
       /><br />
       <input type="submit" name="ok" value="Update" /><br />
     </form>
